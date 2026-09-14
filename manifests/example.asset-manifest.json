@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "id": "example.asset",
+  "path": "assets/example.bin",
+  "kind": "asset",
+  "target": {"game":"TBD","region":"TBD","language":"TBD","revision":"TBD","update":null,"build":null},
+  "source": {"container":"TBD","path":null,"section":null,"symbol":null,"index":null,"offset":null},
+  "size": null,
+  "hashes": {"sha256": null},
+  "generated_by": {"tool":null,"command":null,"version":null},
+  "verification": "Unverified",
+  "shared_with": [],
+  "notes": "Replace placeholder values only with verified information."
+}
