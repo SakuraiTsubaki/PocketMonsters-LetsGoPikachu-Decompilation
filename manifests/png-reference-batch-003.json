@@ -1,0 +1,11 @@
+{
+  "batch": "png-reference-batch-003",
+  "purpose": "Small human-viewable PNG reference batch for the first evolved Kanto starters in the Switch-era 68x56 format. Public reference only; not yet verified against a retail target build.",
+  "assets": [
+    {"id":"ivysaur-switch-box-icon-reference","path":"assets/reference/pokesprite/switch-box-icons/ivysaur.png","kind":"graphic/png/reference","target":{"game":"Pokemon Lets Go Pikachu","region":"not established","revision":"not established"},"source":{"repository":"msikma/pokesprite","path":"pokemon-gen8/regular/ivysaur.png","blob_sha":"2499627a02d54b34c99977227805d18a094faa19"},"dimensions":"68x56","verification":"Unverified"},
+    {"id":"charmeleon-switch-box-icon-reference","path":"assets/reference/pokesprite/switch-box-icons/charmeleon.png","kind":"graphic/png/reference","target":{"game":"Pokemon Lets Go Pikachu","region":"not established","revision":"not established"},"source":{"repository":"msikma/pokesprite","path":"pokemon-gen8/regular/charmeleon.png","blob_sha":"8393d5e9a1a92ab1832810aedf2a9fa7df969d49"},"dimensions":"68x56","verification":"Unverified"},
+    {"id":"wartortle-switch-box-icon-reference","path":"assets/reference/pokesprite/switch-box-icons/wartortle.png","kind":"graphic/png/reference","target":{"game":"Pokemon Lets Go Pikachu","region":"not established","revision":"not established"},"source":{"repository":"msikma/pokesprite","path":"pokemon-gen8/regular/wartortle.png","blob_sha":"72e30a0c92924106221b5fb08d37405b44a00a49"},"dimensions":"68x56","verification":"Unverified"}
+  ],
+  "rights_note": "PokéSprite is MIT-licensed as a project; contributors document that raw sprite files were originally ripped by Zhorken and Kaphotics. Third-party Pokemon/game-image rights are not assumed to be granted by the project software license.",
+  "notes": "Switch-era 68x56 box-icon references; no claim of byte-exact Japanese Let's Go retail identity."
+}
