@@ -1,0 +1,3 @@
+# Project Standards
+
+Stable descriptive paths; meaningful original IDs; explicit version/language/revision/region/update/form differences; editable source and deterministic generation; explicit unknowns; observation separate from hypothesis; hash/stable-ID identity; byte/hash-confirmed deduplication. One live structure only: no `vN`, `PRE-VN`, `MIGRATED`, or parallel legacy trees. One canonical home per artifact/project. No complete ROM/game images or keys.
