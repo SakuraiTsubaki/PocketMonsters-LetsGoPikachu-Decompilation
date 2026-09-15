@@ -1,0 +1,17 @@
+name: Inventory CI
+on:
+  push:
+    paths: ["tools/inventory_target.py", "manifests/version-inventory.json", ".github/workflows/inventory-ci.yml"]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.11"}
+      - run: python -m compileall -q tools/inventory_target.py
+      - run: |
+          mkdir -p .ci/sample
+          printf 'x\n' > .ci/sample/a.bin
+          python tools/inventory_target.py .ci/sample --target-id synthetic --product synthetic --output .ci/i.json
+          python -c "import json; d=json.load(open('.ci/i.json')); assert len(d['files'])==1"
