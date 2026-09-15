@@ -1,38 +1,22 @@
 # Project Status
 
-**Current stage:** Initial setup
+**Current stage:** Phase 0 — target identity / reproducibility baseline
 
-This document tracks decompilation progress, target-version coverage, validation level, and the next major milestones.
-
-## Version inventory
-
-| Target | Region | Language | Revision / update | Verification | Notes |
-| --- | --- | --- | --- | --- | --- |
-| TBD | TBD | TBD | TBD | Unverified | Populate as research begins |
+Initial setup is complete. Metadata-only target inventory tooling and CI are active.
 
 ## Progress
-
-- [ ] Establish authoritative version/revision inventory
-- [ ] Document executable and section layout
+- [x] Establish repository baseline and ROM/key exclusion rules
+- [x] Add deterministic target inventory tooling
+- [x] Add machine-readable version inventory and CI
+- [ ] Inventory the first verified Let's Go Pikachu target
+- [ ] Record revision/update/hash metadata
+- [ ] Document NCA/ExeFS/RomFS and NSO/module layout
 - [ ] Map symbols, functions, and major subsystems
 - [ ] Document game-data formats and resource containers
-- [ ] Reconstruct scripts, events, and behavior
-- [ ] Reconstruct asset pipelines and metadata
-- [ ] Add reproducible extraction/repacking tooling
-- [ ] Add automated verification where practical
+- [ ] Begin bounded source reconstruction
+- [ ] Add reconstruction matching verification
 
-## Validation levels
+Machine-readable inventory: `manifests/version-inventory.json`
 
-- **Unverified** — proposed or recorded but not independently checked.
-- **Observed** — confirmed directly in a target build or extracted data.
-- **Reproduced** — behavior or data can be recreated with documented steps.
-- **Matched** — reconstructed output is verified against the intended target.
-
-## Next milestones
-
-1. Identify and document supported target versions.
-2. Build an initial executable/data map.
-3. Select the first subsystem for source reconstruction.
-4. Record findings in `docs/` and verification evidence in issues or manifests.
-
-Update this file whenever the project reaches a meaningful milestone or adds a new supported target.
+## Immediate next milestone
+Run `tools/inventory_target.py` on the first local Let's Go Pikachu target or extracted tree, register exact identity, then begin ExeFS/RomFS/module mapping. Retail bytes and keys remain local.
