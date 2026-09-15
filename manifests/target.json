@@ -1,0 +1,29 @@
+{
+  "schema": "sakurai.decompilation.target.v1",
+  "generation": 7,
+  "game": "Pokemon: Let's Go, Pikachu!",
+  "family": "Kanto-LetsGo",
+  "platform": "Nintendo Switch",
+  "target_build": {
+    "region": null,
+    "language": null,
+    "revision": null,
+    "update": null,
+    "verification": "unverified"
+  },
+  "format_baseline": {
+    "container_family": "Nintendo Switch application",
+    "primary_areas": ["ExeFS", "RomFS"],
+    "executable_candidates": ["ExeFS/main", "ExeFS/rtld", "ExeFS/sdk", "ExeFS/subsdk*"],
+    "executable_format": "NSO",
+    "status": "platform-format baseline; confirm against local extracted target"
+  },
+  "first_pass": [
+    "inventory extracted tree",
+    "record hashes and sizes",
+    "identify NSO modules",
+    "map main executable sections",
+    "classify RomFS resource families"
+  ],
+  "rom_binary_policy": "Do not commit cartridge images, encrypted title packages, keys, or redistributed proprietary binaries."
+}
