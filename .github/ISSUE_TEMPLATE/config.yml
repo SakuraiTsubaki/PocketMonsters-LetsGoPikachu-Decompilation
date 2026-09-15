@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Research guide
+    url: https://github.com/SakuraiTsubaki/PocketMonsters-LetsGoPikachu-Decompilation/blob/main/docs/RESEARCH_GUIDE.md
+    about: Read the project research workflow before opening a research issue.
+  - name: Project status
+    url: https://github.com/SakuraiTsubaki/PocketMonsters-LetsGoPikachu-Decompilation/blob/main/docs/PROJECT_STATUS.md
+    about: Review current project status and major milestones.
