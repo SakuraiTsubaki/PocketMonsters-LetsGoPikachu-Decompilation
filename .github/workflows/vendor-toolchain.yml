@@ -1,0 +1,19 @@
+name: Vendor Switch toolchain
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/vendor-toolchain.yml']
+permissions: {contents: write}
+jobs:
+  vendor-linux-x86_64:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+        with: {fetch-depth: 0}
+      - run: |
+          curl -fL --retry 3 https://raw.githubusercontent.com/SakuraiTsubaki/Sakurai/6d9e5d6c7377103a87d78bff47a632a153adf0c2/tools/vendor_switch_toolchain.sh -o /tmp/vendor_switch_toolchain.sh
+          PROJECT_ROOT="$PWD" bash /tmp/vendor_switch_toolchain.sh
+      - run: |
+          git config user.name 'github-actions[bot]'; git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -f vendor/toolchain/linux-x86_64; git diff --cached --quiet && exit 0
+          git commit -m 'tooling: vendor Switch toolchain binaries'; git fetch origin main && git rebase origin/main && git push origin HEAD:main
