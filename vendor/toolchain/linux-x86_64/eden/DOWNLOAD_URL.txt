@@ -1,0 +1,1 @@
+https://nightly.eden-emu.dev/v1789504925.b77308ced6/Eden-Linux-b77308ced6-amd64-clang-pgo.AppImage

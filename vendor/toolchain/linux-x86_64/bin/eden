@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+H="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+V="$H/../eden"
+CACHE_BASE="${XDG_CACHE_HOME:-/tmp}"
+CACHE="$CACHE_BASE/sakurai-vendor-eden"
+mkdir -p "$CACHE"
+APP="$CACHE/Eden.AppImage"
+EXPECTED="$(awk '{print $1}' "$V/Eden.AppImage.sha256")"
+if [[ ! -x "$APP" ]] || [[ "$(sha256sum "$APP" | awk '{print $1}')" != "$EXPECTED" ]]; then
+  cat "$V"/Eden.AppImage.part.* > "$APP"
+  chmod 0755 "$APP"
+  echo "$EXPECTED  $APP" | sha256sum -c - >/dev/null
+fi
+export APPIMAGE_EXTRACT_AND_RUN=1
+[[ -n "${DISPLAY:-}${WAYLAND_DISPLAY:-}" ]] || export QT_QPA_PLATFORM="${QT_QPA_PLATFORM:-offscreen}"
+exec "$APP" "$@"
