@@ -30,6 +30,9 @@ dumps/
 .local/
 .cache/
 
+# Repository-local reverse-engineering toolchain and emulator installs
+.tools/
+
 # Build output
 build/
 out/
