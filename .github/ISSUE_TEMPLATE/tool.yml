@@ -1,0 +1,28 @@
+name: Target tool
+description: Add or improve tooling specific to Pocket Monsters Let's Go Pikachu.
+title: "[Tool] "
+body:
+  - type: input
+    id: purpose
+    attributes:
+      label: Purpose
+    validations:
+      required: true
+  - type: textarea
+    id: interface
+    attributes:
+      label: Supported builds, inputs, and outputs
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Errors and safety constraints
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Tests and acceptance criteria
+    validations:
+      required: true

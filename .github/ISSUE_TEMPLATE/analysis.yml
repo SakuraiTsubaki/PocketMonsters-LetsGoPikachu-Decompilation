@@ -1,0 +1,32 @@
+name: Target analysis
+description: Document or improve a finding for Pocket Monsters Let's Go Pikachu.
+title: "[Analysis] "
+body:
+  - type: input
+    id: subject
+    attributes:
+      label: Subject
+    validations:
+      required: true
+  - type: textarea
+    id: target
+    attributes:
+      label: Exact target identity and applicability
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence, method, and verification
+    validations:
+      required: true
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: Confidence
+      options:
+        - Confirmed
+        - Probable
+        - Hypothesis
+    validations:
+      required: true

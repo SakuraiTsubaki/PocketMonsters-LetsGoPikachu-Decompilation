@@ -1,0 +1,31 @@
+name: Target research
+description: Investigate a focused question for Pocket Monsters Let's Go Pikachu.
+title: "[Research] "
+body:
+  - type: input
+    id: question
+    attributes:
+      label: Research question
+    validations:
+      required: true
+  - type: textarea
+    id: target
+    attributes:
+      label: Exact target identity
+      description: Release, region, revision, hashes, and relevant tool versions.
+    validations:
+      required: true
+  - type: textarea
+    id: method
+    attributes:
+      label: Proposed method and evidence
+      description: Inputs, provenance, commands, observations to collect, and constraints.
+    validations:
+      required: true
+  - type: textarea
+    id: completion
+    attributes:
+      label: Completion criteria
+      description: Reproducible result, analysis, tool, test, or resolved question.
+    validations:
+      required: true
