@@ -41,22 +41,22 @@ jobs:
           curl -fL --retry 3 'https://api.adoptium.net/v3/binary/latest/21/ga/linux/x64/jdk/hotspot/normal/eclipse' -o "$D/jdk.tar.gz"
           tar -xzf "$D/jdk.tar.gz" -C "$B/jdk" --strip-components=1
 
-          curl -fL --retry 3 'https://git.eden-emu.dev/api/v1/repos/eden-ci/master/releases?limit=20' -o "$D/eden-releases.json"
+          curl -fL --retry 3 'https://git.eden-emu.dev/api/v1/repos/eden-ci/nightly/releases?limit=20' -o "$D/eden-releases.json"
           python3 - "$D/eden-releases.json" "$D/eden-selection.txt" <<'PY'
           import json, sys
           releases=json.load(open(sys.argv[1],encoding='utf-8'))
           for rel in releases:
               if rel.get('draft') or rel.get('prerelease'): continue
               assets=rel.get('assets') or []
-              imgs=[a for a in assets if (a.get('name') or '').lower().endswith('.appimage') and any(x in (a.get('name') or '').lower() for x in ('amd64','x86_64'))]
+              imgs=[a for a in assets if (a.get('name') or '').lower().endswith('.appimage') and '-linux-' in (a.get('name') or '').lower() and '-amd64-' in (a.get('name') or '').lower()]
               if not imgs: continue
-              imgs.sort(key=lambda a:(0 if 'pgo' in (a.get('name') or '').lower() else 1,a.get('name') or ''))
+              imgs.sort(key=lambda a:(0 if 'clang-pgo' in (a.get('name') or '').lower() else 1,a.get('name') or ''))
               a=imgs[0]; url=a.get('browser_download_url') or a.get('download_url') or a.get('url')
               if url:
                   open(sys.argv[2],'w',encoding='utf-8').write(f"{rel.get('tag_name','unknown')}\t{a.get('name','eden.AppImage')}\t{url}\n")
                   break
           else:
-              raise SystemExit('no stable x86_64 Eden AppImage found')
+              raise SystemExit('no x86_64 Eden nightly AppImage found')
           PY
           IFS=$'\t' read -r EDEN_TAG EDEN_NAME EDEN_URL < "$D/eden-selection.txt"
           curl -fL --retry 3 "$EDEN_URL" -o "$B/emulators/eden.AppImage"
@@ -94,7 +94,7 @@ jobs:
           hactool: https://github.com/SciresM/hactool
           Ghidra: https://github.com/NationalSecurityAgency/ghidra
           Temurin JDK 21: https://adoptium.net/
-          Eden: https://git.eden-emu.dev/eden-ci/master/releases
+          Eden nightly: https://git.eden-emu.dev/eden-ci/nightly/releases
           No ROMs, title keys, firmware, or proprietary game payloads are included.
           EOF
 
