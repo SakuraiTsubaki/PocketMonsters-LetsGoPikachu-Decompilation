@@ -2,4 +2,4 @@
 
 Track evidence-backed milestones rather than estimated percentages.
 
-For each subsystem or deliverable, record its state as Not started, Research, Analysis, Reconstruction, Verification, Verified, or Blocked. Link the research, analysis, code, test, or report that justifies the state and list unresolved blockers explicitly.
+For each subsystem, record Not started, Research, Analysis, Reconstruction, Verification, Verified, or Blocked. Link the committed research, analysis, source, tools, logs, manifests, patches, structured data, PNG outputs, tests, and reports that justify the state.

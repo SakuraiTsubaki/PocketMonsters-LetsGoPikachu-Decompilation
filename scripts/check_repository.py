@@ -11,22 +11,28 @@ import sys
 REQUIRED_PATHS = (
     ".editorconfig", ".gitattributes", ".gitignore", "README.md",
     "CONTRIBUTING.md", "SECURITY.md", "LICENSE", "PROJECT.md",
-    "analysis/README.md", "analysis/template.md", "config/README.md",
-    "config/target.json", "docs/workflow.md", "progress/README.md",
-    "research/README.md", "research/template.md", "src/README.md",
-    "tests/README.md", "tools/README.md",
+    "ARTIFACT_POLICY.md", "analysis/README.md", "analysis/template.md",
+    "artifacts/README.md", "artifacts/graphics/README.md",
+    "config/README.md", "config/target.json", "docs/workflow.md",
+    "logs/README.md", "manifests/README.md", "patches/README.md",
+    "progress/README.md", "research/README.md", "research/template.md",
+    "src/README.md", "tests/README.md", "tools/README.md",
 )
 TARGET_FIELDS = (
     "repository", "target", "platform_family", "generation",
     "identity_status", "release", "region", "revision", "hashes",
 )
-BLOCKED_SUFFIXES = {
+ROM_BINARY_SUFFIXES = {
     ".3ds", ".cci", ".cia", ".gb", ".gba", ".gbc", ".iso",
     ".nds", ".nsp", ".rom", ".xci",
 }
 TEXT_SUFFIXES = {
-    "", ".c", ".cc", ".cfg", ".cpp", ".h", ".hpp", ".inc", ".ini",
-    ".json", ".md", ".py", ".s", ".sh", ".toml", ".txt", ".yaml", ".yml",
+    "", ".c", ".cc", ".cfg", ".cpp", ".csv", ".h", ".hpp", ".inc",
+    ".ini", ".json", ".log", ".md", ".py", ".s", ".sh", ".toml",
+    ".tsv", ".txt", ".xml", ".yaml", ".yml",
+}
+GRAPHICS_DIRECTORY_NAMES = {
+    "graphics", "sprites", "images", "palettes", "fonts", "icons", "tiles",
 }
 SKIP_PARTS = {".git", ".venv", "node_modules"}
 
@@ -35,6 +41,19 @@ def iter_files(root: Path):
     for path in root.rglob("*"):
         if path.is_file() and not any(part in SKIP_PARTS for part in path.parts):
             yield path
+
+
+def validate_graphics_previews(root: Path) -> list[str]:
+    errors: list[str] = []
+    for directory in root.rglob("*"):
+        if not directory.is_dir() or directory.name.lower() not in GRAPHICS_DIRECTORY_NAMES:
+            continue
+        files = [path for path in directory.rglob("*") if path.is_file()]
+        payloads = [path for path in files if path.name.lower() != "readme.md"]
+        if payloads and not any(path.suffix.lower() == ".png" for path in files):
+            relative = directory.relative_to(root)
+            errors.append(f"graphics work has no PNG preview: {relative}")
+    return errors
 
 
 def validate(root: Path) -> list[str]:
@@ -59,8 +78,8 @@ def validate(root: Path) -> list[str]:
 
     for path in iter_files(root):
         relative = path.relative_to(root)
-        if path.suffix.lower() in BLOCKED_SUFFIXES:
-            errors.append(f"blocked binary/package file: {relative}")
+        if path.suffix.lower() in ROM_BINARY_SUFFIXES:
+            errors.append(f"blocked ROM binary: {relative}")
             continue
         if path.suffix.lower() not in TEXT_SUFFIXES:
             continue
@@ -74,6 +93,8 @@ def validate(root: Path) -> list[str]:
                 errors.append(f"trailing whitespace: {relative}:{number}")
         if data and not data.endswith("\n"):
             errors.append(f"missing final newline: {relative}")
+
+    errors.extend(validate_graphics_previews(root))
     return errors
 
 

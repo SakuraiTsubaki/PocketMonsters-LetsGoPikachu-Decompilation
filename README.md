@@ -1,6 +1,6 @@
 # PocketMonsters-LetsGoPikachu-Decompilation
 
-A complete, target-specific foundation for reproducible research, analysis, tooling, and source reconstruction related to **Pocket Monsters Let's Go Pikachu**.
+A complete, target-specific workspace for reproducible research, analysis, tooling, source reconstruction, and retained non-ROM work products related to **Pocket Monsters Let's Go Pikachu**.
 
 | Field | Value |
 | --- | --- |
@@ -10,36 +10,37 @@ A complete, target-specific foundation for reproducible research, analysis, tool
 | Exact build identity | Not selected; complete `PROJECT.md` and `config/target.json` before target claims |
 | Foundation status | Ready for evidence-backed work |
 
-This repository begins without migrated code, assets, conclusions, or progress claims. Its first research milestone is to identify an exact, reproducible target build.
-
 ## Repository areas
 
 | Area | Responsibility |
 | --- | --- |
-| [`research/`](research/) | Target-specific references, experiments, questions, and methodology. |
+| [`research/`](research/) | References, collected material, experiments, questions, and methodology. |
 | [`analysis/`](analysis/) | Symbols, structures, formats, comparisons, and verified findings. |
 | [`tools/`](tools/) | Target adapters and extraction, inspection, conversion, build, and verification utilities. |
-| [`src/`](src/) | Reviewed source reconstruction and source-linked data. |
-| [`config/`](config/) | Target identity, symbols, mappings, and reproducible tool/build configuration. |
+| [`src/`](src/) | Reviewed reconstruction and source-linked data. |
+| [`config/`](config/) | Target identity, symbols, mappings, and reproducible configuration. |
+| [`artifacts/`](artifacts/) | Generated or collected non-ROM outputs, including graphics and converted data. |
+| [`manifests/`](manifests/) | Hashes, inventories, file maps, and build records. |
+| [`logs/`](logs/) | Research, extraction, conversion, build, comparison, and verification logs. |
+| [`patches/`](patches/) | Patch files, generation scripts, manifests, and verification results. |
 | [`tests/`](tests/) | Unit, regression, comparison, and build-verification checks. |
-| [`progress/`](progress/) | Evidence-based milestones and unresolved blockers. |
+| [`progress/`](progress/) | Evidence-backed milestones and blockers. |
 | [`docs/`](docs/) | Target workflow and architecture documentation. |
 
-Target-independent methods and tools belong in [`SakuraiTsubaki/Decompilation`](https://github.com/SakuraiTsubaki/Decompilation).
+Target-independent work belongs in [`SakuraiTsubaki/Decompilation`](https://github.com/SakuraiTsubaki/Decompilation).
 
 ## Start here
 
-1. Complete the identity checklist in [`PROJECT.md`](PROJECT.md).
-2. Replace the unselected fields in [`config/target.json`](config/target.json) with verified identifiers.
-3. Open a focused research record from [`research/template.md`](research/template.md).
-4. Promote reproducible conclusions through [`analysis/template.md`](analysis/template.md).
-5. Add target-specific tooling with tests and documented inputs/outputs.
-6. Run `python scripts/check_repository.py .` and the unit tests before review.
+1. Complete [`PROJECT.md`](PROJECT.md) and [`config/target.json`](config/target.json).
+2. Begin a focused record from [`research/template.md`](research/template.md).
+3. Promote reproducible conclusions through [`analysis/template.md`](analysis/template.md).
+4. Commit every storable non-ROM result produced or collected during the work.
+5. Run `python scripts/check_repository.py .` and the unit tests.
 
-## Non-negotiable rules
+## Storage rule
 
-- Record provenance, hashes, versions, commands, environment, and confidence.
-- Distinguish Confirmed, Probable, and Hypothesis conclusions.
-- Never commit copyrighted game images, firmware, keys, credentials, or locally extracted proprietary content.
-- Keep generated output separate from reviewed source and analysis.
-- Add concrete work, not invented completion percentages or placeholder source trees.
+Only original, modified, or rebuilt ROM binaries—and equivalent complete game-image/package binaries—are excluded from GitHub. Commit all other storable work products: analysis, research, reports, documents, scripts, source, tools, settings, logs, manifests, checklists, tables, CSV/JSON/YAML, graphics, sprites, images, palettes, fonts, icons, tiles, converted data, patches, and validation material.
+
+Graphics and sprite work must include actual viewable PNG output in addition to data and metadata. See [ARTIFACT_POLICY.md](ARTIFACT_POLICY.md).
+
+Secrets, credentials, and private keys are not work products and must not be committed.

@@ -15,9 +15,10 @@ body:
     validations:
       required: true
   - type: textarea
-    id: safety
+    id: retained
     attributes:
-      label: Errors and safety constraints
+      label: Retained outputs
+      description: Source, configuration, fixtures, manifests, logs, examples, images, PNG previews, and tests.
     validations:
       required: true
   - type: textarea

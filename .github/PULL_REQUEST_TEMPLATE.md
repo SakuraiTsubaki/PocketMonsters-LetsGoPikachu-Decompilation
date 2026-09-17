@@ -4,11 +4,15 @@ Identify the exact Pocket Monsters Let's Go Pikachu build and the narrow scope o
 
 ## Evidence and provenance
 
-List hashes, versions, references, commands, and distribution constraints.
+List ROM hashes, references, versions, commands, and terms.
 
 ## Changes
 
 Describe research, analysis, tools, source, configuration, tests, or progress updates.
+
+## Retained non-ROM artifacts
+
+List committed reports, scripts, source, logs, manifests, tables, structured data, patches, graphics, and verification material. Link actual PNG output for graphics or sprite work.
 
 ## Verification
 
@@ -20,8 +24,9 @@ Separate Confirmed, Probable, and Hypothesis conclusions and list unresolved wor
 
 ## Checklist
 
-- [ ] `config/target.json` identifies the applicable build.
-- [ ] Restricted binaries, proprietary extracted content, credentials, and secrets are absent.
+- [ ] Exact build identity is recorded.
+- [ ] Original, modified, and rebuilt ROM binaries are absent.
+- [ ] Every storable non-ROM work product is committed.
+- [ ] Graphics and sprite work includes inspectable PNG output.
 - [ ] Provenance and reproduction steps are documented.
-- [ ] Tools or source include tests or another explicit verification route.
 - [ ] Repository validation passes.

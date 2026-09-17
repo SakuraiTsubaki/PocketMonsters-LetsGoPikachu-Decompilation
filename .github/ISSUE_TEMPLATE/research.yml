@@ -12,20 +12,20 @@ body:
     id: target
     attributes:
       label: Exact target identity
-      description: Release, region, revision, hashes, and relevant tool versions.
+      description: Release, region, revision, ROM hashes, and tool versions.
     validations:
       required: true
   - type: textarea
     id: method
     attributes:
-      label: Proposed method and evidence
-      description: Inputs, provenance, commands, observations to collect, and constraints.
+      label: Method and evidence
+      description: Inputs, provenance, commands, observations, and constraints.
     validations:
       required: true
   - type: textarea
-    id: completion
+    id: artifacts
     attributes:
-      label: Completion criteria
-      description: Reproducible result, analysis, tool, test, or resolved question.
+      label: Non-ROM artifacts to retain
+      description: Logs, manifests, tables, structured data, patches, images, PNG outputs, and verification material.
     validations:
       required: true

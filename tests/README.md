@@ -1,5 +1,5 @@
 # Tests
 
-Tests cover repository policy, target-specific tools, reconstructed logic, data formats, regressions, comparisons, and reproducible build properties.
+Tests cover repository policy, target-specific tools, reconstructed logic, formats, regressions, comparisons, graphics, and reproducible build properties.
 
-Prefer small independently distributable fixtures. When a test requires a user-supplied restricted input, identify it by hash, skip safely when absent, and document setup without redistributing it.
+Commit non-ROM fixtures, expected outputs, logs, manifests, comparison tables, reports, and failure records. Graphics tests must preserve actual PNG expected or observed output alongside palettes, metadata, tiles, or conversion data.

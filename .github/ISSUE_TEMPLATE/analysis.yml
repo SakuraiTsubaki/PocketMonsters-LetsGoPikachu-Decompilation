@@ -20,6 +20,13 @@ body:
       label: Evidence, method, and verification
     validations:
       required: true
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Retained non-ROM artifacts
+      description: Reports, logs, manifests, structured data, patches, images, and PNG results.
+    validations:
+      required: true
   - type: dropdown
     id: confidence
     attributes:

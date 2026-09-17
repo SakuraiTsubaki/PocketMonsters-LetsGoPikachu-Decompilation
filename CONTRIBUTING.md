@@ -1,12 +1,14 @@
 # Contributing
 
-Work in this repository must be specific to Pocket Monsters Let's Go Pikachu and tied to an exact target build.
+Work in this repository must be tied to an exact Pocket Monsters Let's Go Pikachu build and preserve its complete non-ROM evidence trail.
 
-Before making target claims, complete `PROJECT.md` and `config/target.json` with evidence-backed release, region, revision, and hash data. Use the research and analysis templates, preserve provenance, and keep observations separate from interpretations.
+Before making target claims, complete `PROJECT.md` and `config/target.json`. Keep the ROM binary outside Git, but commit every storable non-ROM item created, collected, extracted, converted, normalized, or organized during the work.
 
-Tools must document supported builds, inputs, outputs, dependencies, error behavior, safety constraints, and verification. Reusable target-independent components should be proposed to the shared [Decompilation repository](https://github.com/SakuraiTsubaki/Decompilation).
+Required retained material includes analysis, research, reports, documentation, scripts, source, tools, configuration, logs, manifests, checklists, comparison tables, structured data, graphics, sprites, images, palettes, fonts, icons, tiles, converted data, patches, and verification results.
 
-Do not commit restricted game images, firmware, extracted proprietary content, secrets, or credentials.
+Graphics-related work is incomplete unless actual PNG previews, sheets, renders, or comparisons are committed alongside the underlying data and metadata.
+
+Reusable target-independent components belong in the shared [Decompilation repository](https://github.com/SakuraiTsubaki/Decompilation).
 
 Before review, run:
 
@@ -15,4 +17,4 @@ python scripts/check_repository.py .
 python -m unittest discover -s tests -v
 ```
 
-A pull request must describe scope, evidence, changes, verification results, confidence, and unresolved follow-up.
+A pull request must describe target identity, scope, provenance, retained artifacts, verification, confidence, and follow-up.

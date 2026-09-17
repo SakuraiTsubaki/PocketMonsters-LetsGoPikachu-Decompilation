@@ -1,11 +1,12 @@
 # Target Workflow
 
 1. **Identify** — complete `PROJECT.md` and `config/target.json`.
-2. **Inventory** — document containers, executables, data partitions, compression, and checksums without committing restricted inputs.
-3. **Research** — ask one narrow question per record and preserve exact reproduction steps.
-4. **Analyze** — convert observations into falsifiable claims with confidence and verification.
-5. **Tool** — automate repeated operations with safe interfaces and tests.
-6. **Reconstruct** — add reviewed source only when behavior and target identity justify it.
-7. **Verify** — compare bytes, structures, traces, builds, or behavior using the strongest practical method.
-8. **Track** — update progress from repository evidence, never from unsupported estimates.
-9. **Promote** — move target-independent work to `SakuraiTsubaki/Decompilation` after assumptions are removed and tests demonstrate reuse.
+2. **Inventory** — identify the ROM by hash while committing all storable non-ROM inventories, manifests, extracted structures, and collected research.
+3. **Research** — preserve questions, references, commands, scripts, logs, observations, failures, and non-ROM outputs.
+4. **Analyze** — create falsifiable claims with committed evidence, structured data, tables, reports, and confidence.
+5. **Tool** — automate repeated operations and retain source, configuration, fixtures, manifests, logs, generated non-ROM examples, and tests.
+6. **Reconstruct** — add reviewed source and source-linked non-ROM data when evidence justifies it.
+7. **Verify** — commit comparisons, traces, logs, reports, patches, expected results, and observed results.
+8. **Render** — for graphics, sprites, palettes, fonts, icons, and tiles, commit actual PNG output alongside data and metadata.
+9. **Track** — update progress from repository evidence.
+10. **Promote** — move target-independent work to `SakuraiTsubaki/Decompilation` without discarding artifacts or history.
